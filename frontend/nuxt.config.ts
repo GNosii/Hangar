@@ -77,6 +77,12 @@ export default defineNuxtConfig({
       // Workaround until they support native ESM
       noExternal: ["vue3-popper"],
     },
+    // GitHub Codespaces workaround for the Vite websocket error https://github.com/vitejs/vite/discussions/5195#discussioncomment-2934273
+    server: {
+      hmr: {
+        clientPort: process.env.CODESPACES ? 433 : undefined
+      }
+    }
   },
   experimental: {
     writeEarlyHints: false,
@@ -134,6 +140,8 @@ function defineProxyBackend(): ProxyOptions {
     configure: (proxy, options) => {
       options.target = process.env.BACKEND_HOST || process.env.NITRO_BACKEND_HOST || "http://localhost:8080";
     },
+
     changeOrigin: true,
+
   };
 }
