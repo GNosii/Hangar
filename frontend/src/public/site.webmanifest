@@ -1,8 +1,9 @@
 {
   "$schema": "https://json.schemastore.org/web-manifest-combined.json",
-  "name": "Hangar | PaperMC",
+  "name": "Hangar by PaperMC",
   "description": "Plugin repository for Paper plugins and more!",
   "short_name": "Hangar",
+  "start_url": "/"
   "icons": [
     {
       "src": "/favicon/android-chrome-192x192.png",
